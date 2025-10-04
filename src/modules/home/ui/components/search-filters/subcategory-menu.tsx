@@ -38,7 +38,7 @@ export const SubcategoryMenu = ({ category, isOpen, position }: Props) => {
             <Link
               key={subcategory.slug}
               // http://localhost:3000/music/music-theory
-              href={`/${category.slug}/${category.slug}`}
+              href={`/${category.slug}/${subcategory.slug}`}
               className="w-full text-left p-4 hover:bg-black hover:text-white flex justify-between items-center underline font-medium"
             >
               {subcategory.name}
