@@ -14,6 +14,7 @@ export const Products: CollectionConfig = {
   },
   admin: {
     useAsTitle: "name",
+    description: "You must verify your account before creating products",
   },
   fields: [
     {
@@ -47,6 +48,11 @@ export const Products: CollectionConfig = {
     },
     {
       name: "image",
+      type: "upload",
+      relationTo: "media",
+    },
+    {
+      name: "cover",
       type: "upload",
       relationTo: "media",
     },
