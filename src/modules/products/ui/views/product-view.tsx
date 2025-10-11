@@ -11,9 +11,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import { RichText } from "@payloadcms/richtext-lexical/react";
-// import { CartButton } from "../components/cart-button";
 import dynamic from "next/dynamic";
 import { toast } from "sonner";
+import type {
+  SerializedEditorState,
+  SerializedLexicalNode,
+} from "@payloadcms/richtext-lexical/lexical";
 
 const CartButton = dynamic(
   () => import("../components/cart-button").then((mod) => mod.CartButton),
@@ -106,7 +109,12 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
             </div>
             <div className="p-6">
               {data.description ? (
-                <RichText data={data.description} />
+                // <RichText data={data.description} />
+                <RichText
+                  data={
+                    data.description as unknown as SerializedEditorState<SerializedLexicalNode>
+                  }
+                />
               ) : (
                 <p className="font-medium text-muted-foreground italic">
                   No description provided
